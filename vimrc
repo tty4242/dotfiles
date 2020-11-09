@@ -14,6 +14,8 @@ filetype on " turn on filetype detection
 syntax on " turn on syntax highlighting
 filetype plugin on " load file-type specific plugin files
 filetype indent on " load file-type specific indent files
+" take cursor to first line, reformat till last line, return cursor
+nnoremap ,i gg=G<C-o><C-o>
 
 set scrolloff=20 " show 20 lines above and below cursor (when possible)
 set nowrap " do not wrap long lines
