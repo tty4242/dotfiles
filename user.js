@@ -95,7 +95,6 @@ user_pref("dom.presentation.receiver.enabled", false);
 user_pref("dom.audiochannel.audioCompeting", false);
 user_pref("dom.audiochannel.mediaControl", false);
 
-user_pref("extensions.allowPrivateBrowsingByDefault", true);
 user_pref("network.cookie.cookieBehavior", 1);
 user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("browser.download.forward_oma_android_download_manager", false);
