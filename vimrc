@@ -42,6 +42,9 @@ set softtabstop=4 " tabs are displayed as 4 spaces on screen
 " indent visual selection with tab
 vnoremap <Tab> >
 vnoremap <S-Tab> <
+" copy visual selection to system clipboard
+vnoremap <S-c> :w !xclip -selection clipboard<CR><CR>
+
 
 set incsearch " search as you type
 set ignorecase " ignore case for searching
