@@ -56,8 +56,11 @@ nnoremap ,h :set nohlsearch<CR>
 set splitright " open new split panes to right
 set splitbelow " open new split panes to bottom
 
+" write de-duplicated file preserving order of lines
+command -nargs=0 Dew :%!awk '\!visited[$0]++'
+
+" sudo write file
+command -nargs=0 Sudow w !sudo tee % >/dev/null
+
 set undofile " maintain undo history between sessions
 set undodir=~/.vim/undodir
-
-" save read-only files
-command -nargs=0 Sudow w !sudo tee % >/dev/null
