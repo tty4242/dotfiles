@@ -53,6 +53,13 @@ set hlsearch " highlight search
 " turn off search highlighting
 nnoremap ,h :set nohlsearch<CR>
 
+" toggle spellchecking
+nnoremap ,s :set spell!<CR>
+" use internal spellfile as dictionary if spellchecking is on
+set dictionary+=spell
+" use the dictionary for autocomplete
+set complete+=k
+
 set splitright " open new split panes to right
 set splitbelow " open new split panes to bottom
 
