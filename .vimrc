@@ -3,33 +3,20 @@ set ruler " show position in status bar
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
 set shortmess+=I " disable startup message
+set laststatus=2 " always show status line
 set autochdir " set current directory to directory of last opened file
 set hidden " allow hidden buffers (not displayed in any window)
 set mouse+=a " enable mouse support
 set cursorline " highlight current line
 " toggle cursor line
 nnoremap ,c :set cursorline!<CR>
-set backspace=indent,eol,start " allow backspacing over everything
+
 filetype on " turn on filetype detection
 syntax on " turn on syntax highlighting
 filetype plugin on " load file-type specific plugin files
 filetype indent on " load file-type specific indent files
 " take cursor to first line, reformat till last line, return cursor
 nnoremap ,i gg=G<C-o><C-o>
-
-set scrolloff=20 " show 20 lines above and below cursor (when possible)
-set nowrap " do not wrap long lines
-" toggle wrapping of long lines
-nnoremap ,w :set wrap!<CR>
-" tabs, trailing spaces, leading chars, trailing chars, non-breakable spaces
-set listchars=tab:›\ ,trail:␣,precedes:«,extends:»,nbsp:⍽
-set list " show listchars
-" toggle displaying of listchars
-nnoremap ,l :set list!<CR>
-set number " line numbering
-set relativenumber " relative line numbering
-" toggle relative numbering
-nnoremap ,n :set relativenumber!<CR>
 
 set autoindent " copy indent from current line to new line
 set smartindent " indent after brackets and more
@@ -45,6 +32,20 @@ vnoremap <S-Tab> <
 " copy visual selection to system clipboard
 vnoremap <S-c> :w !xclip -selection clipboard<CR><CR>
 
+set scrolloff=20 " show 20 lines above and below cursor (when possible)
+set nowrap " do not wrap long lines
+" toggle wrapping of long lines
+nnoremap ,w :set wrap!<CR>
+set backspace=indent,eol,start " allow backspacing over everything
+" tabs, trailing spaces, leading chars, trailing chars, non-breakable spaces
+set listchars=tab:›\ ,trail:␣,precedes:«,extends:»,nbsp:⍽
+set list " show listchars
+" toggle displaying of listchars
+nnoremap ,l :set list!<CR>
+set number " line numbering
+set relativenumber " relative line numbering
+" toggle relative numbering
+nnoremap ,n :set relativenumber!<CR>
 
 set incsearch " search as you type
 set ignorecase " ignore case for searching
@@ -62,12 +63,18 @@ set complete+=k
 
 set splitright " open new split panes to right
 set splitbelow " open new split panes to bottom
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " write de-duplicated file preserving order of lines
 command -nargs=0 Dew :%!awk '\!visited[$0]++'
 
 " sudo write file
 command -nargs=0 Sudow w !sudo tee % >/dev/null
+
+set directory=~/.vim/swap// " vim .swp file directory
 
 set undofile " maintain undo history between sessions
 set undodir=~/.vim/undodir

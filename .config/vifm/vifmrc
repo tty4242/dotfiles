@@ -305,6 +305,8 @@ nnoremap S :sort<CR>
 nnoremap w :view<CR>
 vnoremap w :view<CR>gv
 
+" Tab syncs panes
+nnoremap <Tab> :sync<CR>
 " Open file in vim
 nnoremap o :!vim %f<CR>
 " Open file in the background using its default program

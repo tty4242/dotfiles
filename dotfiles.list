@@ -1,0 +1,13 @@
+.Xresources
+.bash_aliases
+.bash_logout
+.bashrc
+.config/i3/config
+.config/i3/status.conf
+.inputrc
+.mozilla/firefox/user.js
+.profile
+.tmux.conf
+.config/vifm/vifmrc
+.vimrc
+.xsession
