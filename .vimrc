@@ -74,7 +74,15 @@ command -nargs=0 Dew :%!awk '\!visited[$0]++'
 " sudo write file
 command -nargs=0 Sudow w !sudo tee % >/dev/null
 
-set directory=~/.vim/swap// " vim .swp file directory
+" Do not litter directories with swap files
+if !isdirectory($HOME . "/.vim/swap")
+    call mkdir($HOME . "/.vim/swap", "p")
+endif
+set directory=~/.vim/swap//
 
-set undofile " maintain undo history between sessions
-set undodir=~/.vim/undodir
+" Set up persistent undo across all files
+set undofile
+if !isdirectory($HOME . "/.vim/undo")
+    call mkdir($HOME . "/.vim/undo", "p")
+endif
+set undodir=~/.vim/undo
