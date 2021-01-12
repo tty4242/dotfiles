@@ -13,7 +13,7 @@ xset -b
 xset dpms 600 600 600
 
 # Set keyrepeat delay and rate
-xset r rate 200 50
+xset r rate 250 50
 
 # Set screen temperature
 sct 3000
