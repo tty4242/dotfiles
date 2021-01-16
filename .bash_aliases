@@ -14,3 +14,9 @@ function rtcrec() {
            -codec:v libx264rgb -crf 0 -preset ultrafast \
            "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
+
+function pulserec() {
+    ffmpeg -f pulse -ac 2 -i 0 \
+           -codec:a libopus -application voip \
+           "$(date +%Y-%m-%d_%H.%M.%S).opus"
+}
