@@ -1,5 +1,9 @@
 [ -e "$HOME/.profile" ] && source "$HOME/.profile"
 
+if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 bindkey -v
 
 # make less more friendly for non-text input files, see lesspipe(1)
