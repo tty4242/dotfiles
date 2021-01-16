@@ -5,7 +5,6 @@
 .config/i3/config
 .config/i3/status.conf
 .config/vifm/vifmrc
-.inputrc
 .mozilla/firefox/user.js
 .profile
 .tmux.conf
