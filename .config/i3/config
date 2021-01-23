@@ -174,4 +174,4 @@ bar {
 exec --no-startup-id dex -a
 
 # Lock screen if idle for 5 minutes
-exec --no-startup-id xautolock -detectsleep -time 5 -locker $lock &
+exec --no-startup-id xautolock -detectsleep -time 15 -locker $lock &
