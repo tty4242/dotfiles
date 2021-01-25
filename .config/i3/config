@@ -11,7 +11,8 @@ font pango:Hack 12
 # Terminal emulator
 set $term urxvt
 # Program launcher
-set $menu dmenu_run
+#set $menu dmenu_run
+set $menu "rofi -modi run -show run -location 1 -width 100 -lines 1 -columns 12 -separator-style none"
 # Browser
 set $browser firefox
 # Screen locker
@@ -174,4 +175,4 @@ bar {
 exec --no-startup-id dex -a
 
 # Lock screen if idle for 5 minutes
-exec --no-startup-id xautolock -detectsleep -time 15 -locker $lock &
+exec --no-startup-id xautolock -detectsleep -time 11 -locker $lock &
