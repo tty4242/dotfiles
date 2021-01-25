@@ -1,13 +1,13 @@
 .Xresources
 .bash_logout
 .bashrc
-.config/i3/config
-.config/i3/status.conf
+.config/i3/
 .config/vifm/vifmrc
 .mozilla/firefox/user.js
 .profile
 .tmux.conf
 .vimrc
 .xsession
+.zsh/pure/
 .zshrc
 .zshrc.local
