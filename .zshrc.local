@@ -12,17 +12,17 @@ if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 # use pure prompt: https://github.com/sindresorhus/pure
-fpath+="$HOME/.zsh/pure"
-PURE_PROMPT_SYMBOL='>'
-PURE_CMD_MAX_EXEC_TIME=1
-zstyle :prompt:pure:prompt:success color green
-autoload -U promptinit; promptinit
-prompt pure
+if [ -e "$HOME/.zsh/pure" ]; then
+    fpath+="$HOME/.zsh/pure"
+    PURE_PROMPT_SYMBOL='>'
+    PURE_CMD_MAX_EXEC_TIME=1
+    zstyle :prompt:pure:prompt:success color green
+    autoload -U promptinit; promptinit
+    prompt pure
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-source "$HOME/.cargo/env"
 
 alias xc="xclip -selection clipboard"
 alias zoom="firejail zoom"
