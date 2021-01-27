@@ -218,6 +218,6 @@ bar {
 #
 # XDG Autostart:
 #
-exec dex -a
+exec dex-autostart -a
 
 include /etc/sway/config.d/*
