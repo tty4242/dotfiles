@@ -1,10 +1,11 @@
 .Xresources
 .bash_logout
 .bashrc
+.config/alacritty/
 .config/i3/
 .config/sway/
-.config/alacritty/
 .config/vifm/vifmrc
+.config/waybar/
 .mozilla/firefox/user.js
 .profile
 .tmux.conf
