@@ -216,8 +216,11 @@ bar {
 }
 
 #
-# XDG Autostart:
+# Autostart:
 #
+# User systemd units
+systemctl --user start gammastep
+# XDG autostart
 exec dex-autostart -a
 
 include /etc/sway/config.d/*
