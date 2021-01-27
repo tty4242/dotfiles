@@ -198,7 +198,7 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 bindsym XF86MonBrightnessDown exec brightnessctl set 2%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 2%+
 # Print Screen
-bindsym Print exec grim -o "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
+bindsym Print exec grim -t png "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).png"
 
 #
 # Status Bar:
