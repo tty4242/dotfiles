@@ -12,20 +12,31 @@ if [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 # use pure prompt: https://github.com/sindresorhus/pure
-fpath+="$HOME/.zsh/pure"
-if [ "$TERM" = "linux" ]; then
-    PURE_PROMPT_SYMBOL='>'
-    PURE_PROMPT_VICMD_SYMBOL='<'
+if [ -e "$HOME/.zsh/pure" ]; then
+    fpath+="$HOME/.zsh/pure"
+    if [ "$TERM" = "linux" ]; then
+        PURE_PROMPT_SYMBOL='>'
+        PURE_PROMPT_VICMD_SYMBOL='<'
+    fi
+    PURE_CMD_MAX_EXEC_TIME=1
+    zstyle :prompt:pure:prompt:success color green
+    autoload -U promptinit; promptinit
+    prompt pure
 fi
-PURE_CMD_MAX_EXEC_TIME=1
-zstyle :prompt:pure:prompt:success color green
-autoload -U promptinit; promptinit
-prompt pure
+
+# start sway if running from tty1
+if [ "$(tty)" = "/dev/tty1" ]; then
+    export XDG_CURRENT_DESKTOP=Unity # for waybar tray area
+    export MOZ_ENABLE_WAYLAND=1 # for Firefox
+    export _JAVA_AWT_WM_NONREPARENTING=1 # for Java apps
+    export CLUTTER_BACKEND=wayland # for clutter apps
+    export QT_QPA_PLATFORM=xcb # for apps that ship with X11 QT
+    export SDL_VIDEODRIVER=x11 # for apps that ship with X11 SDL
+    exec systemd-cat -t sway sway
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-source "$HOME/.cargo/env"
 
 alias xc="xclip -selection clipboard"
 alias zoom="firejail zoom"
@@ -43,12 +54,7 @@ function rtcrec() {
 }
 
 function pulserec() {
-    if [ "x$i" = "x" ]; then
-        CHANNEL="$i"
-    else
-        CHANNEL='0'
-    fi
-    ffmpeg -f pulse -ac 2 -i "$CHANNEL" \
+    ffmpeg -f pulse -ac 2 -i 0 \
            -codec:a libopus -application voip \
            "$(date +%Y-%m-%d_%H.%M.%S).opus"
 }
