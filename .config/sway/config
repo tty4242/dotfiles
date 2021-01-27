@@ -18,7 +18,7 @@ set $term alacritty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show run --location 1 --width 100% --lines 1 --columns 12 --hide-scroll --gtk-dark
 # Your preferred screen locker
-set $lock 'swaylock -f -c 000000'
+set $lock swaylock -f -c 000000
 # Your preferred font
 set $font pango:Source Code Pro 11
 
@@ -40,8 +40,8 @@ output eDP-1 {
 # Autolock configuration
 exec swayidle -w \
     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    timeout 900 $lock \
-    before-sleep $lock
+    timeout 900 "$lock" \
+    before-sleep "$lock"
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
