@@ -219,7 +219,7 @@ bar {
 # Autostart:
 #
 # User systemd units
-systemctl --user start gammastep
+exec systemctl --user start gammastep
 # XDG autostart
 exec dex-autostart -a
 
