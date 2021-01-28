@@ -18,7 +18,7 @@ set $term alacritty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show run --location 1 --width 100% --lines 1 --columns 12 --hide-scroll --gtk-dark
 # Your preferred screen locker
-set $lock swaylock -f -c 000000
+set $lock swaylock -f -c 323232
 # Your preferred font
 set $font pango:Source Code Pro 11
 
