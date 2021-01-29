@@ -45,11 +45,8 @@ function cpr() {
 }
 
 function rtcrec() {
-    ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 \
-           -f pulse -ac 2 -i 0 \
-           -codec:a libopus -application voip \
-           -codec:v libx264rgb -crf 30 -preset ultrafast \
-           "$(date +%Y-%m-%d_%H.%M.%S).mkv"
+    wf-recorder -c libx264rgb -p crf=30 -p preset=ultrafast \
+                -f "$(date +%Y-%m-%d_%H.%M.%S).mkv"
 }
 
 function pulserec() {
