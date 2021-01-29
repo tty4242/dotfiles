@@ -2,6 +2,7 @@
 .bash_logout
 .bashrc
 .config/alacritty/
+.config/gammastep/
 .config/i3/
 .config/sway/
 .config/vifm/vifmrc
