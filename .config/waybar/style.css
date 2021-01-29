@@ -59,13 +59,15 @@
 @keyframes blink {
     to {
         color: #000000;
-        background-color: #000000;
     }
+}
+
+#battery.warning {
+    color: #ff0000;
 }
 
 #battery.critical:not(.charging) {
     color: #ff0000;
-    background-color: #000000;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
