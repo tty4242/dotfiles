@@ -1,82 +1,76 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Inter;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    min-height: 0;
+    color: #ffffff;
+    background-color: #000000;
 }
 
-window#waybar {
-    background: transparent;
-    color: white;
-}
-
-#window {
-    font-weight: bold;
-}
-/*
 #workspaces {
-    padding: 0 5px;
+    margin: 0 4px;
 }
-*/
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
-    color: white;
-    font-weight: 400;
-    /* border-top: 2px solid transparent; */
+    background-color: transparent;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
 }
 
-/* #workspaces button:nth-child(1):nth-last-child(1) {
- * opacity: 0;
- * }
- */
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -3px #ffffff;
+}
 
 #workspaces button.focused {
-    color: #c9545d;
-    font-weight: 500;
-    /* border-top: 2px solid #c9545d; */
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    color: #c9c900;
-    font-weight: 500;
-    /* border-top: 2px solid #c9545d; */
+    background-color: #eb4d4b;
 }
 
-#mode {
-    background: #64727D;
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 3px;
+    margin: 0 4px;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-    padding: 0 8px;
-    margin: 0 2px;
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
 }
 
-#clock {
-    font-weight: 500;
-}
-
-#battery {
-}
-
-#battery icon {
-    color: red;
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
 }
 
 #battery.charging {
+    color: #ffffff;
+    background-color: #000000;
 }
 
 @keyframes blink {
     to {
+        color: #000000;
         background-color: #ffffff;
-        color: black;
     }
 }
 
-#battery.warning:not(.charging) {
-    color: white;
+#battery.critical:not(.charging) {
+    color: #ffffff;
+    background-color: #000000;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -84,29 +78,22 @@ window#waybar {
     animation-direction: alternate;
 }
 
-#cpu {
-}
-
-#memory {
-}
-
-#network {
+label:focus {
+    background-color: #000000;
 }
 
 #network.disconnected {
-    background: #f53c3c;
-}
-
-#pulseaudio {
+    color: #ffffff;
+    background-color: #000000;
 }
 
 #pulseaudio.muted {
+    color: #ffffff;
+    background-color: #000000;
 }
 
-#custom-spotify {
-    color: rgb(102, 220, 105);
-}
-
-#tray {
+#temperature.critical {
+    color: #ffffff;
+    background-color: #000000;
 }
 
