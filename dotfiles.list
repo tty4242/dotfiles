@@ -7,6 +7,9 @@
 .config/sway/
 .config/vifm/vifmrc
 .config/waybar/
+.local/bin/dotbackup
+.local/bin/grimshot
+.local/bin/textcleaner
 .mozilla/firefox/user.js
 .profile
 .tmux.conf
