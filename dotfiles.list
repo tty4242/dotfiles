@@ -13,6 +13,7 @@
 .mozilla/firefox/user.js
 .profile
 .tmux.conf
+.vim/pack/
 .vimrc
 .xsession
 .zsh/pure/
