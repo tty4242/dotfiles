@@ -227,6 +227,6 @@ exec systemctl --user start gammastep
 # XDG autostart
 exec dex-autostart -a
 # Set screen temperature
-exec gammactl -O 4500
+exec gammactl -O 3500
 
 include /etc/sway/config.d/*
