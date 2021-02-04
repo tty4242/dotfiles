@@ -15,7 +15,6 @@
     },
     "cpu": {
         "format": " {usage}%",
-        "tooltip": false
     },
     "memory": {
         "format": " {}%"
@@ -40,7 +39,7 @@
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-linked": "! {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
