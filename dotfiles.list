@@ -16,6 +16,7 @@
 .vim/pack/
 .vimrc
 .xsession
+.zsh/fzf/
 .zsh/pure/
 .zshrc
 .zshrc.local
