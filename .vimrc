@@ -1,4 +1,5 @@
 set nocompatible " not compatible with vi
+colorscheme industry
 set ruler " show position in status bar
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
@@ -68,6 +69,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" autowrite files before commands like `make`
+set autowrite
+" make command to execute if `Makefile` is absent
+set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ make\ $*\ '%<';fi
+nnoremap ,m :make<CR>
+nnoremap ,r :!./'%<'<CR>
+
 " write de-duplicated file preserving order of lines
 command -nargs=0 Dew :%!awk '\!visited[$0]++'
 
@@ -86,3 +94,8 @@ if !isdirectory($HOME . "/.vim/undo")
     call mkdir($HOME . "/.vim/undo", "p")
 endif
 set undodir=~/.vim/undo
+
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
