@@ -1,48 +1,41 @@
-URxvt.font: xft:Hack:size=13:antialias=true
+URxvt.font: xft:Source Code Pro:size=13:antialias=true
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
 URxvt.saveLine: 10000
 URxvt.skipScroll: false
 URxvt.iso14755: false
-URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,font-size
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,font-size,vtwheel
+URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-!! Color Scheme
-
+!! Color Scheme (base16/default.dark)
 ! special
-*.foreground:   #ffffff
-*.background:   #000000
-*.cursorColor:  #a9aaa9
-
+*.foreground:   #d0d0d0
+*.background:   #151515
+*.cursorColor:  #d0d0d0
 ! black
-*.color0:       #000000
-*.color8:       #7f7f7f
-
+*.color0:       #151515
+*.color8:       #505050
 ! red
-*.color1:       #cd0000
-*.color9:       #ff0000
-
+*.color1:       #ac4142
+*.color9:       #ac4142
 ! green
-*.color2:       #00cd00
-*.color10:      #00ff00
-
+*.color2:       #90a959
+*.color10:      #90a959
 ! yellow
-*.color3:       #cdcd00
-*.color11:      #ffff00
-
+*.color3:       #f4bf75
+*.color11:      #f4bf75
 ! blue
-*.color4:       #6495ed
-*.color12:      #5c5cff
-
+*.color4:       #6a9fb5
+*.color12:      #6a9fb5
 ! magenta
-*.color5:       #cd00cd
-*.color13:      #ff00ff
-
+*.color5:       #aa759f
+*.color13:      #aa759f
 ! cyan
-*.color6:       #00cdcd
-*.color14:      #00ffff
-
+*.color6:       #75b5aa
+*.color14:      #75b5aa
 ! white
-*.color7:       #e5e5e5
-*.color15:      #ffffff
-
+*.color7:       #d0d0d0
+*.color15:      #f5f5f5
