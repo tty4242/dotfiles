@@ -1,21 +1,14 @@
-export EDITOR=vim
-
-# Set keyboard layout
-#setxkbmap -layout us,us -variant ,dvorak -option grp:toggle -option caps:escape
-
-# Enable X server terminate sequence
-setxkbmap -option terminate:ctrl_alt_bksp
-
 # Disable bell
 xset -b
-
-# Enable dpms (standby suspend off) timeout
-xset dpms 600 600 600
-
-# Set keyrepeat delay and rate
+# DPMS (standby suspend off) timeouts
+xset dpms 500 500 500
+# Key repeat delay and rate
 xset r rate 250 50
-
-# Set screen temperature
-sct 3000
+# X server terminate sequence
+setxkbmap -option terminate:ctrl_alt_bksp
+# Use CapsLock as second ESC, toggle CapsLock on Shift+CapsLock
+setxkbmap -option caps:escape_shifted_capslock
+# Set keyboard layout toggle
+setxkbmap -layout us,us -variant ,dvorak -option grp:toggle
 
 exec /usr/bin/i3
