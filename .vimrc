@@ -1,5 +1,6 @@
 set nocompatible " not compatible with vi
-colorscheme industry
+colorscheme industry " industrial color palette
+set guifont=Source\ Code\ Pro\ 12 " font for gvim
 set ruler " show position in status bar
 set encoding=utf-8 " set text encoding to utf-8
 set history=10000 " more history
