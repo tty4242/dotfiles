@@ -1,4 +1,10 @@
-URxvt.font: xft:Source Code Pro:size=13:antialias=true
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintfull
+
+URxvt.font: xft:Source Code Pro-12:medium:spacing=mono
+!URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
 URxvt.saveLine: 10000
@@ -13,10 +19,10 @@ URxvt.matcher.button: 1
 !! Color Scheme (base16/default.dark)
 ! special
 *.foreground:   #d0d0d0
-*.background:   #151515
+*.background:   #000000
 *.cursorColor:  #d0d0d0
 ! black
-*.color0:       #151515
+*.color0:       #000000
 *.color8:       #505050
 ! red
 *.color1:       #ac4142
