@@ -155,12 +155,6 @@ bindsym Shift+Print exec maim -s -u "$HOME/Downloads/$(date +%Y-%m-%d_%H.%M.%S).
 bar {
     position top
     status_command i3status -c ~/.config/i3/status.conf
-
-    colors {
-        statusline #ffffff
-        background #000000
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
 }
 
 ###
