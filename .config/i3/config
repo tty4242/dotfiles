@@ -10,6 +10,8 @@ set $up Up
 set $right Right
 # Terminal emulator
 set $term urxvt
+# File manager
+set $fm urxvt -e vifm
 # Application launcher
 set $menu rofi -modi run -show run -location 1 -width 100 -lines 1 -columns 12 -separator-style none -theme android_notification
 # Screen locker
@@ -24,6 +26,8 @@ font pango:Source Code Pro 11
 # Basics
     # Start a terminal
     bindsym $mod+Return exec $term
+    # Start a file manager
+    bindsym $mod+Shift+Return exec $fm
     # Kill focused window
     bindsym $mod+Shift+q kill
     # Start your launcher
@@ -162,5 +166,5 @@ bar {
 ###
 # XDG autostart
 exec dex-autostart -a
-# Lock screen if idle for 5 minutes
+# Lock screen if idle for 10 minutes
 exec xautolock -detectsleep -time 10 -locker "$lock" &
