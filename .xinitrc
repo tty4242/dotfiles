@@ -1,7 +1,5 @@
 # Disable bell
 xset -b
-# DPMS (standby suspend off) timeouts
-xset dpms 500 500 500
 # Key repeat delay and rate
 xset r rate 250 50
 # X server terminate sequence
