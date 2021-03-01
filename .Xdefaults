@@ -10,9 +10,10 @@ URxvt.cursorBlink: true
 URxvt.saveLine: 10000
 URxvt.skipScroll: false
 URxvt.iso14755: false
+URxvt.iso14755_52: false
 URxvt.scrollTtyOutput: false
 URxvt.scrollTtyKeypress: true
-URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,font-size,vtwheel
+URxvt.perl-ext-common: readline,searchable-scrollback,selection,matcher,vtwheel
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
