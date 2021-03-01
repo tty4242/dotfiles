@@ -64,6 +64,10 @@ set wildstyle=popup
 " registers (at most 5 files).  In other view, when available.
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
+" Display file names (left aligned), modification times (right aligned),
+" file size (8 chars, right aligned)
+set viewcolumns=-{name},{mtime},8{size}
+
 set ignorecase " ignore case for searching
 set smartcase " override ignore case when upper case letters are present
 set incsearch " search as you type
