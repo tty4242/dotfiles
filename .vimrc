@@ -8,7 +8,7 @@ set shortmess+=I " disable startup message
 set laststatus=2 " always show status line
 set autochdir " set current directory to directory of last opened file
 set hidden " allow hidden buffers (not displayed in any window)
-set mouse+=a " enable mouse support
+set mouse=nvi " pass mouse input to vim, but not in command mode
 set cursorline " highlight current line
 " toggle cursor line
 nnoremap ,c :set cursorline!<CR>
@@ -23,8 +23,6 @@ nnoremap ,i gg=G<C-o><C-o>
 set autoindent " copy indent from current line to new line
 set smartindent " indent after brackets and more
 set expandtab " expand tabs to spaces
-" insert literal tab with shift+tab
-inoremap <S-Tab> <C-v><Tab>
 set tabstop=4 " tabs are expanded to 4 spaces in the file
 set shiftwidth=4 " 4 spaces for each indent
 set softtabstop=4 " tabs are displayed as 4 spaces on screen
@@ -54,7 +52,7 @@ set ignorecase " ignore case for searching
 set smartcase " override ignore case when upper case letters are present
 set hlsearch " highlight search
 " turn off search highlighting
-nnoremap ,h :set nohlsearch<CR>
+nnoremap ,h :set hlsearch!<CR>
 
 " toggle spellchecking
 nnoremap ,s :set spell!<CR>
@@ -75,13 +73,37 @@ set autowrite
 " make command to execute if `Makefile` is absent
 set makeprg=if\ \[\ -f\ \"Makefile\"\ \];then\ make\ $*;else\ make\ $*\ '%<';fi
 nnoremap ,m :make<CR>
+" generate ctags in current folder
+nnoremap ,t :!ctags -R<CR>
+" run executable with same name as source file
 nnoremap ,r :!./'%<'<CR>
 
+" load GDB plugin and start it, putting source window on right
+nnoremap ,d :packadd termdebug<CR>:Termdebug %<<CR><C-w>k<C-w>k<C-w>L
+nnoremap <Leader>b :Break<CR>
+nnoremap <Leader>r :Run<CR>
+
+" load man plugin
+runtime! ftplugin/man.vim
+" open man page in new tab instead of horizontal split
+let g:ft_man_open_mode = 'tab'
+
+" netrw config
+let g:netrw_liststyle=3 " tree style listing
+let g:netrw_banner=0 " suppress top banner
+let g:netrw_browse_split=3 " open file in new tab
+let g:netrw_browse_split=4 " open file in previous window
+let g:netrw_winsize=20 " set netrw window size
+let g:netrw_keepdir=0 " sync netrw $PWD with vim
+
 " write de-duplicated file preserving order of lines
-command -nargs=0 Dew :%!awk '\!visited[$0]++'
+command -nargs=0 Rdupe :%!awk '\!visited[$0]++'
 
 " sudo write file
-command -nargs=0 Sudow w !sudo tee % >/dev/null
+command -nargs=0 Sudow :w !sudo tee % >/dev/null
+
+" remove trailing spaces and tabs
+command -nargs=0 Rtrail :%s/\s\+$//g
 
 " Do not litter directories with swap files
 if !isdirectory($HOME . "/.vim/swap")
