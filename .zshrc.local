@@ -24,6 +24,12 @@ if [ -e "$HOME/.zsh/pure" ]; then
     prompt pure
 fi
 
+# use fzf completions and keybindings: https://github.com/junegunn/fzf
+if [ -e "$HOME/.zsh/fzf" ]; then
+    source "$HOME/.zsh/fzf/completion.zsh"
+    source "$HOME/.zsh/fzf/key-bindings.zsh"
+fi
+
 # start a wm if running from tty1
 if [ "$(tty)" = "/dev/tty1" ]; then
     if [ -e /usr/bin/i3 ]; then
@@ -39,10 +45,20 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     fi
 fi
 
+# tell gpg-agent to use pinentry on current tty
+GPG_TTY="$(tty)"
+export GPG_TTY
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# use vim as a pager; strip ANSI escape codes and pipe to vim's less macro
+export PAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | vim --noplugin -c 'set nolist nomod' -\""
+export MANPAGER="sh -c \"perl -pe 's/\e\[[0-9;]*[a-zA-Z]//g' | vim --noplugin -c 'set filetype=man nolist nomod' -\""
+
 alias zoom="firejail zoom"
+alias xc="xclip -selection clipboard"
+alias lvim="$PAGER"
 
 function cpr() {
     rsync --archive --human-readable --human-readable --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
