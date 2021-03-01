@@ -1,0 +1,6 @@
+[submodule ".vim/pack/plugins/start/org.vim"]
+	path = .vim/pack/plugins/start/org.vim
+	url = https://github.com/axvr/org.vim
+[submodule ".vim/pack/plugins/start/YouCompleteMe"]
+	path = .vim/pack/plugins/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe
