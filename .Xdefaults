@@ -4,7 +4,7 @@ Xft.hinting: true
 Xft.hintstyle: hintfull
 
 URxvt.font: xft:Source Code Pro-12:medium:spacing=mono
-!URxvt.letterSpace: -1
+URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.cursorBlink: true
 URxvt.saveLine: 10000
