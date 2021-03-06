@@ -9,6 +9,7 @@
 .config/sway/
 .config/vifm/vifmrc
 .config/waybar/
+.config/zathura/zathurarc
 .local/bin/dotbackup
 .local/bin/grimshot
 .local/bin/textcleaner
